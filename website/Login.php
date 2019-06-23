@@ -198,19 +198,19 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 			<div class="col-md-3 footer-grid">
 				<h4>Services</h4>
 				<ul>
-					<li><a href="#">rerum hic tenetur</a></li>
+					<li><a href="#"></a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 footer-grid">
 				<h4>Information</h4>
 				 <ul>
-					<li><a href="#">quibusdam et aut</a></li>
+					<li><a href="#"></a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 footer-grid">
 				<h4>More details</h4>
 				<ul>
-					<li><a href="#">About us</a></li>
+					<li><a href="#"></a></li>
 				</ul>
 			</div>
 			 <div class="col-md-3 footer-grid contact-grid">

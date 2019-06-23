@@ -193,7 +193,10 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 				</div>
 				
 				<div id="divTransfer" class="name" style="display: none;">
-						<textarea rows="7" cols="30"></textarea>
+						<textarea rows="9" cols="30">SOMO integrates a selection of delivery partners who bid on the work in a marketplace, ensuring the best value and speed for customers. 
+						Founding delivery partners: Vecon, osb
+
+						</textarea>
 				</div>
 								
 				<br/>
@@ -217,19 +220,19 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 			<div class="col-md-3 footer-grid">
 				<h4>Services</h4>
 				<ul>
-					<li><a href="#">rerum hic tenetur</a></li>
+					<li><a href="#"></a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 footer-grid">
 				<h4>Information</h4>
 				 <ul>
-					<li><a href="#">quibusdam et aut</a></li>
+					<li><a href="#"></a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 footer-grid">
 				<h4>More details</h4>
 				<ul>
-					<li><a href="#">About us</a></li>
+					<li><a href="#"></a></li>
 				</ul>
 			</div>
 			 <div class="col-md-3 footer-grid contact-grid">

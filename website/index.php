@@ -153,7 +153,7 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 					<li>
 						<div class="banner-info">
 							<div class="banner-info-left">
-								<img src="images/2.png" alt=" " class="img-responsive" />
+								<img src="images/2.png" alt=" " class="img-responsive" style="width: 350px; height: 350px;" />
 							</div>
 							<div class="banner-info-right">
 								<h1>Linking consumers directly with farmers</h1>
@@ -171,25 +171,6 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 		</div>
 	</div>
 <!-- //banner -->
-<!-- welcome -->
-	<div class="welcome">
-		<div class="container">
-			<div class="col-md-6 welcome-left">
-				<img src="images/5.png" alt=" " class="img-responsive" />
-			</div>
-			<div class="col-md-6 welcome-right">
-				<h3>A Brief <span>History</span></h3>
-				<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, 
-					consectetur, adipisci velit, sed quia non numquam eius modi tempora 
-					incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-				<div class="cont">
-					<a href="single.html">More</a>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-<!-- //welcome -->
 <!-- our-advantages -->
 	<div class="our-advantages">
 		<div class="container">
@@ -257,6 +238,20 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 		</div>
 	</div>
 <!-- //our-advantages -->
+<!-- welcome -->
+	<div class="welcome">
+		<div class="container">
+			<div class="col-md-6 welcome-left">
+				<img src="images/5.png" alt=" " class="img-responsive" />
+			</div>
+			<div class="col-md-6 welcome-right">
+				<h3>Team <span>Motivation</span></h3>
+				<p>As a diverse team with different backgrounds and focuses, we were able to challenge our ideas from different perspectives. At each point we tried to address consumer and farmer needs in the complex agrifood supply chains in simple but innovative ways.</p>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //welcome -->
 <!-- footer -->
 	<div class="footer">
 		<div class="footer-grids">
@@ -264,19 +259,19 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 			<div class="col-md-3 footer-grid">
 				<h4>Services</h4>
 				<ul>
-					<li><a href="#">rerum hic tenetur</a></li>
+					<li><a href="#"></a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 footer-grid">
 				<h4>Information</h4>
 				 <ul>
-					<li><a href="#">quibusdam et aut</a></li>
+					<li><a href="#"></a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 footer-grid">
 				<h4>More details</h4>
 				<ul>
-					<li><a href="#">About us</a></li>
+					<li><a href="#"></a></li>
 				</ul>
 			</div>
 			 <div class="col-md-3 footer-grid contact-grid">

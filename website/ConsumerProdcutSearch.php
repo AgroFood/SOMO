@@ -27,8 +27,8 @@ $htmlTableOut.="</tr>";
 
 		if (isset($_POST['btnSearchProduct']) || $varSearch!="")
 		{
-				$userName=$_SESSION['username'];
-				$currDateTime=date("Y/m/d h:i:sa");
+				//$userName=$_SESSION['username'];
+				//$currDateTime=date("Y/m/d h:i:sa");
 				
 				
 				$searchProdcutCat="";
@@ -55,6 +55,9 @@ $htmlTableOut.="</tr>";
 				  //echo fgets($file). "<br />";
 				  
 				  $fileLine=fgets($file);
+				 
+				 if (strlen($fileLine) > 1)
+				 {
 				  
 				  $arr=explode(',',$fileLine);
 				  
@@ -70,7 +73,7 @@ $htmlTableOut.="</tr>";
 				  //echo $prodcutCat. "<br/>";	
 				  
 				  
-				  if (($searchProdcutCat != "" && strpos($prodcutCat, $searchProdcutCat) !== false)
+				  if (($searchProdcutCat != "" && strpos(strtoupper($prodcutCat), strtoupper($searchProdcutCat)) !== false)
 				      )
 				  {
 					//echo $fileLine. "<br/>";
@@ -114,12 +117,7 @@ $htmlTableOut.="</tr>";
 					
 				  }
 				  
-				//  if ($searchProdcutDesc  != "" && strpos($prodcutDesc, $searchProdcutDesc) !== false)
-				//  {
-				//	echo $fileLine. "<br/>";	
-				//  }
-				  
-				  
+				 }
 				}
 				
 				fclose($file);
@@ -291,19 +289,19 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 			<div class="col-md-3 footer-grid">
 				<h4>Services</h4>
 				<ul>
-					<li><a href="#">rerum hic tenetur</a></li>
+					<li><a href="#"></a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 footer-grid">
 				<h4>Information</h4>
 				 <ul>
-					<li><a href="#">quibusdam et aut</a></li>
+					<li><a href="#"></a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 footer-grid">
 				<h4>More details</h4>
 				<ul>
-					<li><a href="#">About us</a></li>
+					<li><a href="#"></a></li>
 				</ul>
 			</div>
 			 <div class="col-md-3 footer-grid contact-grid">
