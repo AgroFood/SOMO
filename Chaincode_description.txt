@@ -1,0 +1,50 @@
+Chaincode contains -
+
+1. GENERAL FUNCTIONS: Executes a query using a specific key
+
+2. CHAINCODE: 
+	> Executes defined blocks
+
+2.1 Customer functions: 
+	> Creates a new customer, 
+	> Retrieves a specfic customer, 
+	> Retrieves all customers, 
+
+2.2 Farmer functions: 
+	> Creates a new farmer, 
+	> Retrieves a specfic farmer, 
+	> Retrieves all farmers
+
+2.3 PP functions: 
+	> Creates a new PP (Payment Provider), 
+	> Retrieves a specfic PP, 
+	> Retrieves all PP
+
+2.4 Payment functions: 
+	> Creates a new Payment, 
+	> Retrieves a specfic payment, 
+	> Retrieves payments for a specfic customer, 
+	> Retrieves payments for a specfic farmer, 
+	> Retrieves payments for a specfic PP, 
+	> Retrieves all payments, 
+
+2.5 Spend functions: 
+	> Creates a new Spend, 
+	> Retrieves a specfic spend, 
+	> Retrieves spend for a specfic PP, 
+	> Retrieves all spend, 
+
+2.6 SpendAllocation functions: 
+	> Retrieves a specfic spendAllocation, 
+	> Retrieves the spendAllocation records for a specific Payment, 
+	> Retrieves the spendAllocation records for a specific Spend record, 
+	> Retrieves all spendAllocations
+
+2.7 Ratings functions: 
+	> Creates a new Rating, 
+	> Retrieves ratings for a specfic PP, 
+	> Retrieves ratings for an PP made by a specific farmer, 
+
+2.8 Blockchain related functions: 
+	> Retrieves the Fabric block and transaction details for a key or an array of keys
+
