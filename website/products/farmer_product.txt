@@ -1,0 +1,8 @@
+2019/06/22 04:43,g,Dairy,Low fat milk,2 liter carton,40,7.55
+2019/06/18 04:44,Farmer John,Fresh Veg,Carrots,5kg bag,82,2.55
+2019/06/22 04:44,Green Producer,Fresh Veg,Butternut,5kg bag,30,4.50 
+2019/06/19 04:46,Joubert,Fresh Veg,Pumpkin,7kg box,41,2.85
+2019/06/21 04:47,Sammy,Fresh Veg,Carrots,2kg bag,15,4.50
+2019/06/18 12:06,Farmer John,Fresh Veg,Beetroot,5kg box,12,8.0
+2019/06/18 15:21,Genavie,Fresh Veg,Potatoes,9kg pocket,42,7.00
+2019/06/18 09:00,Nexus Cultivator,Fresh Veg,Carrots,5kg bag,33,2.55
