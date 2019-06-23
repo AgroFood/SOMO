@@ -417,8 +417,6 @@ let Chaincode = class {
    */
   async Invoke(stub) {
     console.log('Transaction Starting');
-	console.info('Transaction ID: ' + stub.getTxID());
-	console.info(util.format('Args: %j', stub.getArgs()));
     let ret = stub.getFunctionAndParameters();
     console.log('Invoke args: ' + JSON.stringify(ret));
 
