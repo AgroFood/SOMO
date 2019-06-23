@@ -50,47 +50,47 @@ echo Add PPs
 docker exec -e "CORE_PEER_TLS_ENABLED=true" -e "CORE_PEER_TLS_ROOTCERT_FILE=/opt/home/managedblockchain-tls-chain.pem" \ 
 -e "CORE_PEER_ADDRESS=$PEER" -e "CORE_PEER_LOCALMSPID=$MSP" -e "CORE_PEER_MSPCONFIGPATH=$MSP_PATH" \ 
 cli peer chaincode invoke -o $ORDERER -C $CHANNEL -n $CHAINCODENAME \ 
--c '{"Args":["createPP","{\"PPRegistrationNumber\": \"1234\", \"PPName\": \"Inapay\", \"PPDescription\": \"We provide stable cyrpto\", \"address\": \"ABC street\", \"contactNumber\": \"123456789\", \"contactEmail\": \"pp@pp.com\"}"]}'
+-c '{"Args":["createPP","{\"ppRegistrationNumber\": \"1234\", \"ppName\": \"Inapay\", \"ppDescription\": \"We provide stable cyrpto\", \"address\": \"ABC street\", \"contactNumber\": \"123456789\", \"contactEmail\": \"pp@pp.com\"}"]}'
 
 
 docker exec -e "CORE_PEER_TLS_ENABLED=true" -e "CORE_PEER_TLS_ROOTCERT_FILE=/opt/home/managedblockchain-tls-chain.pem" \ 
 -e "CORE_PEER_ADDRESS=$PEER" -e "CORE_PEER_LOCALMSPID=$MSP" -e "CORE_PEER_MSPCONFIGPATH=$MSP_PATH" \ 
 cli peer chaincode invoke -o $ORDERER -C $CHANNEL -n $CHAINCODENAME \ 
--c '{"Args":["createPP","{\"PPRegistrationNumber\": \"1235\", \"PPName\": \"Inapay\", \"PPDescription\": \"We provide stable cyrpto\", \"address\": \"ABCD street\", \"contactNumber\": \"123456788\", \"contactEmail\": \"pp1@pp1.com\"}"]}'
+-c '{"Args":["createPP","{\"ppRegistrationNumber\": \"1235\", \"ppName\": \"Inapay\", \"ppDescription\": \"We provide stable cyrpto\", \"address\": \"ABCD street\", \"contactNumber\": \"123456788\", \"contactEmail\": \"pp1@pp1.com\"}"]}'
 
 echo Add Payments
 
 docker exec -e "CORE_PEER_TLS_ENABLED=true" -e "CORE_PEER_TLS_ROOTCERT_FILE=/opt/home/managedblockchain-tls-chain.pem" 
 \ -e "CORE_PEER_ADDRESS=$PEER" -e "CORE_PEER_LOCALMSPID=$MSP" -e "CORE_PEER_MSPCONFIGPATH=$MSP_PATH" 
 \ cli peer chaincode invoke -o $ORDERER -C $CHANNEL -n $CHAINCODENAME 
-\ -c '{"Args":["createPayment","{\"paymentId\": \"2211\", \"paymentAmount\": 100, \"paymentDate\": \"2018-09-20T12:41:59.582Z\", \"customerUserName\": \"edge\", \"PPRegistrationNumber\": \"1234\"}"]}'
+\ -c '{"Args":["createPayment","{\"paymentId\": \"2211\", \"paymentAmount\": 100, \"paymentDate\": \"2018-09-20T12:41:59.582Z\", \"customerUserName\": \"edge\", \"ppRegistrationNumber\": \"1234\"}"]}'
 
 docker exec -e "CORE_PEER_TLS_ENABLED=true" -e "CORE_PEER_TLS_ROOTCERT_FILE=/opt/home/managedblockchain-tls-chain.pem" \ 
 -e "CORE_PEER_ADDRESS=$PEER" -e "CORE_PEER_LOCALMSPID=$MSP" -e "CORE_PEER_MSPCONFIGPATH=$MSP_PATH" \ 
 cli peer chaincode invoke -o $ORDERER -C $CHANNEL -n $CHAINCODENAME \ 
--c '{"Args":["createPayment","{\"paymentId\": \"2212\", \"paymentAmount\": 733, \"paymentDate\": \"2018-09-20T12:41:59.582Z\", \"customerUserName\": \"braendle\", \"PPRegistrationNumber\": \"1234\"}"]}'
+-c '{"Args":["createPayment","{\"paymentId\": \"2212\", \"paymentAmount\": 733, \"paymentDate\": \"2018-09-20T12:41:59.582Z\", \"customerUserName\": \"braendle\", \"ppRegistrationNumber\": \"1234\"}"]}'
 
 docker exec -e "CORE_PEER_TLS_ENABLED=true" -e "CORE_PEER_TLS_ROOTCERT_FILE=/opt/home/managedblockchain-tls-chain.pem" \ 
 -e "CORE_PEER_ADDRESS=$PEER" -e "CORE_PEER_LOCALMSPID=$MSP" -e "CORE_PEER_MSPCONFIGPATH=$MSP_PATH" \ 
 cli peer chaincode invoke -o $ORDERER -C $CHANNEL -n $CHAINCODENAME \ 
--c '{"Args":["createPayment","{\"paymentId\": \"2230\", \"paymentAmount\": 450, \"paymentDate\": \"2018-09-20T12:41:59.582Z\", \"customerUserName\": \"edge\", \"PPRegistrationNumber\": \"1235\"}"]}'
+-c '{"Args":["createPayment","{\"paymentId\": \"2230\", \"paymentAmount\": 450, \"paymentDate\": \"2018-09-20T12:41:59.582Z\", \"customerUserName\": \"edge\", \"ppRegistrationNumber\": \"1235\"}"]}'
 
 echo Add Spends
 
 docker exec -e "CORE_PEER_TLS_ENABLED=true" -e "CORE_PEER_TLS_ROOTCERT_FILE=/opt/home/managedblockchain-tls-chain.pem" \ 
 -e "CORE_PEER_ADDRESS=$PEER" -e "CORE_PEER_LOCALMSPID=$MSP" -e "CORE_PEER_MSPCONFIGPATH=$MSP_PATH" \ 
 cli peer chaincode invoke -o $ORDERER -C $CHANNEL -n $CHAINCODENAME \ 
--c '{"Args":["createSpend","{\"PPRegistrationNumber\": \"1234\", \"spendId\": \"11\", \"spendDescription\": \"pay per buy\", \"spendDate\": \"2018-09-20T12:41:59.582Z\", \"spendAmount\": 33}"]}'
+-c '{"Args":["createSpend","{\"ppRegistrationNumber\": \"1234\", \"spendId\": \"11\", \"spendDescription\": \"pay per buy\", \"spendDate\": \"2018-09-20T12:41:59.582Z\", \"spendAmount\": 33}"]}'
 
 docker exec -e "CORE_PEER_TLS_ENABLED=true" -e "CORE_PEER_TLS_ROOTCERT_FILE=/opt/home/managedblockchain-tls-chain.pem" \ 
 -e "CORE_PEER_ADDRESS=$PEER" -e "CORE_PEER_LOCALMSPID=$MSP" -e "CORE_PEER_MSPCONFIGPATH=$MSP_PATH" \ 
 cli peer chaincode invoke -o $ORDERER -C $CHANNEL -n $CHAINCODENAME \ 
--c '{"Args":["createSpend","{\"PPRegistrationNumber\": \"1234\", \"spendId\": \"12\", \"spendDescription\": \"pay per buy\", \"spendDate\": \"2018-09-20T12:41:59.582Z\", \"spendAmount\": 651}"]}'
+-c '{"Args":["createSpend","{\"ppRegistrationNumber\": \"1234\", \"spendId\": \"12\", \"spendDescription\": \"pay per buy\", \"spendDate\": \"2018-09-20T12:41:59.582Z\", \"spendAmount\": 651}"]}'
 
 docker exec -e "CORE_PEER_TLS_ENABLED=true" -e "CORE_PEER_TLS_ROOTCERT_FILE=/opt/home/managedblockchain-tls-chain.pem" \ 
 -e "CORE_PEER_ADDRESS=$PEER" -e "CORE_PEER_LOCALMSPID=$MSP" -e "CORE_PEER_MSPCONFIGPATH=$MSP_PATH" \ 
 cli peer chaincode invoke -o $ORDERER -C $CHANNEL -n $CHAINCODENAME \ 
--c '{"Args":["createSpend","{\"PPRegistrationNumber\": \"1235\", \"spendId\": \"13\", \"spendDescription\": \"pay per buy\", \"spendDate\": \"2018-09-20T12:41:59.582Z\", \"spendAmount\": 323}"]}'
+-c '{"Args":["createSpend","{\"ppRegistrationNumber\": \"1235\", \"spendId\": \"13\", \"spendDescription\": \"pay per buy\", \"spendDate\": \"2018-09-20T12:41:59.582Z\", \"spendAmount\": 323}"]}'
 
 echo Query all customer
 
@@ -126,7 +126,7 @@ echo Query specific PP
 
 docker exec -e "CORE_PEER_TLS_ENABLED=true" -e "CORE_PEER_TLS_ROOTCERT_FILE=/opt/home/managedblockchain-tls-chain.pem" \ 
 -e "CORE_PEER_ADDRESS=$PEER" -e "CORE_PEER_LOCALMSPID=$MSP" -e "CORE_PEER_MSPCONFIGPATH=$MSP_PATH" \ 
-cli peer chaincode query -C $CHANNEL -n $CHAINCODENAME -c '{"Args":["queryPP","{\"PPRegistrationNumber\": \"1234\"}"]}'
+cli peer chaincode query -C $CHANNEL -n $CHAINCODENAME -c '{"Args":["queryPP","{\"ppRegistrationNumber\": \"1234\"}"]}'
 
 echo Query all Payments
 
@@ -138,7 +138,7 @@ echo Query all Payments for PP
 
 docker exec -e "CORE_PEER_TLS_ENABLED=true" -e "CORE_PEER_TLS_ROOTCERT_FILE=/opt/home/managedblockchain-tls-chain.pem" \ 
 -e "CORE_PEER_ADDRESS=$PEER" -e "CORE_PEER_LOCALMSPID=$MSP" -e "CORE_PEER_MSPCONFIGPATH=$MSP_PATH" \ 
-cli peer chaincode query -C $CHANNEL -n $CHAINCODENAME -c '{"Args":["queryDonationsForPP","{\"PPRegistrationNumber\": \"1234\"}"]}'
+cli peer chaincode query -C $CHANNEL -n $CHAINCODENAME -c '{"Args":["queryPaymentForPP","{\"ppRegistrationNumber\": \"1234\"}"]}'
 
 echo Query all Spend
 
