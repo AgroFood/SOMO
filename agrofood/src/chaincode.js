@@ -598,9 +598,9 @@ let Chaincode = class {
    * @param {*} stub 
    * @param {*} args - JSON as follows:
    * {
-   *    "PPRegistrationNumber":"1234",
-   *    "PPName":"Inapay",
-   *    "PPDescription":"We provide stable cyrpto",
+   *    "ppRegistrationNumber":"1234",
+   *    "ppName":"Inapay",
+   *    "ppDescription":"We provide stable cyrpto",
    *    "address":"ABC street",
    *    "contactNumber":"123456789",
    *    "contactEmail":"pp@pp.com"
@@ -608,19 +608,19 @@ let Chaincode = class {
    */
   async createPP(stub, args) {
     console.log('START : createPP');
-    console.log('##### createPP arguments: ' + JSON.stringify(args));
+    console.log('createPP arguments: ' + JSON.stringify(args));
 
     // args is passed as a JSON string
     let json = JSON.parse(args);
-    let key = 'PP' + json['PPRegistrationNumber'];
-    json['docType'] = 'PP';
+    let key = 'PP' + json['ppRegistrationNumber'];
+    json['docType'] = 'pp';
 
-    console.log('##### createNGO payload: ' + JSON.stringify(json));
+    console.log('createPP payload: ' + JSON.stringify(json));
 
     // Check if the PP already exists
-    let ngoQuery = await stub.getState(key);
-    if (ngoQuery.toString()) {
-      throw new Error('createPP - This PP already exists: ' + json['PPRegistrationNumber']);
+    let ppQuery = await stub.getState(key);
+    if (ppQuery.toString()) {
+      throw new Error('createPP - This PP already exists: ' + json['ppRegistrationNumber']);
     }
 
     await stub.putState(key, Buffer.from(JSON.stringify(json)));
@@ -628,7 +628,7 @@ let Chaincode = class {
   }
 
   /**
-   * Retrieves a specfic PP
+   * Retrieves a specfic pp
    * 
    * @param {*} stub 
    * @param {*} args 
@@ -639,7 +639,7 @@ let Chaincode = class {
 
     // args is passed as a JSON string
     let json = JSON.parse(args);
-    let key = 'PP' + json['PPRegistrationNumber'];
+    let key = 'pp' + json['ppRegistrationNumber'];
     console.log('queryPP key: ' + key);
 
     return queryByKey(stub, key);
@@ -651,11 +651,11 @@ let Chaincode = class {
    * @param {*} stub 
    * @param {*} args 
    */
-  async queryAllPP(stub, args) {
+  async queryAllPPs(stub, args) {
     console.log('START : queryAllPP');
     console.log('queryAllPP arguments: ' + JSON.stringify(args));
  
-    let queryString = '{"selector": {"docType": "PP"}}';
+    let queryString = '{"selector": {"docType": "pp"}}';
     return queryByString(stub, queryString);
   }
 
@@ -676,7 +676,7 @@ let Chaincode = class {
    *    "PaymentDate":"2018-09-20T12:41:59.582Z",
    *    "customerUserName":"edge",
    *    "farmerUserName":"edge1",
-   *    "PPRegistrationNumber":"1234"
+   *    "ppRegistrationNumber":"1234"
    * }
    */
   async createPayment(stub, args) {
@@ -691,10 +691,10 @@ let Chaincode = class {
     console.log('createPayment payment: ' + JSON.stringify(json));
 
     // Confirm the PP exists
-    let PPKey = 'PP' + json['PPRegistrationNumber'];
+    let PPKey = 'PP' + json['ppRegistrationNumber'];
     let PPQuery = await stub.getState(PPKey);
     if (!PPQuery.toString()) {
-      throw new Error('createPayment - Cannot create payment as the PP does not exist: ' + json['PPRegistrationNumber']);
+      throw new Error('createPayment - Cannot create payment as the PP does not exist: ' + json['ppRegistrationNumber']);
     }
 
     // Confirm the customer exists
@@ -782,7 +782,7 @@ let Chaincode = class {
 
     // args is passed as a JSON string
     let json = JSON.parse(args);
-    let queryString = '{"selector": {"docType": "payment", "PPRegistrationNumber": "' + json['PPRegistrationNumber'] + '"}}';
+    let queryString = '{"selector": {"docType": "payment", "ppRegistrationNumber": "' + json['ppRegistrationNumber'] + '"}}';
     return queryByString(stub, queryString);
   }
 
@@ -811,7 +811,7 @@ let Chaincode = class {
    * @param {*} stub 
    * @param {*} args - JSON as follows:
    * {
-   *    "PPRegistrationNumber":"1234",
+   *    "ppRegistrationNumber":"1234",
    *    "spendId":"11",
    *    "spendDescription":"pay per buy",
    *    "spendDate":"2018-09-20T12:41:59.582Z",
@@ -830,10 +830,10 @@ let Chaincode = class {
     console.log('createSpend spend: ' + JSON.stringify(json));
 
     // Confirm the PP exists
-    let PPKey = 'PP' + json['ngoRegistrationNumber'];
-    let PPQuery = await stub.getState(PPKey);
-    if (!PPQuery.toString()) {
-      throw new Error('createPayment - Cannot create spend record as the PP does not exist: ' + json['PPRegistrationNumber']);
+    let ppKey = 'PP' + json['ppRegistrationNumber'];
+    let ppQuery = await stub.getState(ppKey);
+    if (!ppQuery.toString()) {
+      throw new Error('createPayment - Cannot create spend record as the PP does not exist: ' + json['ppRegistrationNumber']);
     }
 
     // Check if the Spend already exists
@@ -877,7 +877,7 @@ let Chaincode = class {
 
     // args is passed as a JSON string
     let json = JSON.parse(args);
-    let queryString = '{"selector": {"docType": "spend", "PPRegistrationNumber": "' + json['PPRegistrationNumber'] + '"}}';
+    let queryString = '{"selector": {"docType": "spend", "ppRegistrationNumber": "' + json['ppRegistrationNumber'] + '"}}';
     return queryByString(stub, queryString);
   }
 
@@ -912,7 +912,7 @@ let Chaincode = class {
    *   "spendAllocationDate":"2018-09-20T12:41:59.582Z",
    *   "spendAllocationDescription":"Pay per buy",
    *   "paymentId":"FFF6A68D-DB19-4CD3-97B0-01C1A793ED3B",
-   *   "PPRegistrationNumber":"D0884B20-385D-489E-A9FD-2B6DBE5FEA43",
+   *   "ppRegistrationNumber":"D0884B20-385D-489E-A9FD-2B6DBE5FEA43",
    *   "spendId": "11"
    * }
    */
@@ -991,7 +991,7 @@ let Chaincode = class {
    * @param {*} stub 
    * @param {*} args - JSON as follows:
    * {
-   *    "PPRegistrationNumber":"1234",
+   *    "ppRegistrationNumber":"1234",
    *    "farmerUserName":"edge1",
    *    "rating":1,
    * }
@@ -1002,7 +1002,7 @@ let Chaincode = class {
 
     // args is passed as a JSON string
     let json = JSON.parse(args);
-    let key = 'rating' + json['PPRegistrationNumber'] + json['farmerUserName'];
+    let key = 'rating' + json['ppRegistrationNumber'] + json['farmerUserName'];
     json['docType'] = 'rating';
 
     console.log('createRating payload: ' + JSON.stringify(json));
@@ -1010,7 +1010,7 @@ let Chaincode = class {
     // Check if the Rating already exists
     let ratingQuery = await stub.getState(key);
     if (ratingQuery.toString()) {
-      throw new Error('createRating - Rating by farmer: ' +  json['farmerUserName'] + ' for PP: ' + json['PPRegistrationNumber'] + ' already exists');
+      throw new Error('createRating - Rating by farmer: ' +  json['farmerUserName'] + ' for PP: ' + json['ppRegistrationNumber'] + ' already exists');
     }
 
     await stub.putState(key, Buffer.from(JSON.stringify(json)));
@@ -1029,7 +1029,7 @@ let Chaincode = class {
 
     // args is passed as a JSON string
     let json = JSON.parse(args);
-    let queryString = '{"selector": {"docType": "rating", "PPRegistrationNumber": "' + json['PPRegistrationNumber'] + '"}}';
+    let queryString = '{"selector": {"docType": "rating", "ppRegistrationNumber": "' + json['ppRegistrationNumber'] + '"}}';
     return queryByString(stub, queryString);
   }
 
@@ -1045,7 +1045,7 @@ let Chaincode = class {
 
     // args is passed as a JSON string
     let json = JSON.parse(args);
-    let key = 'rating' + json['PPRegistrationNumber'] + json['farmerUserName'];
+    let key = 'rating' + json['ppRegistrationNumber'] + json['farmerUserName'];
     console.log('queryFarmerRatingsForPP key: ' + key);
     return queryByKey(stub, key);
   }
